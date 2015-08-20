@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP">
+        <CLASSES>
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-invoker" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/version" />
+          <root url="file://$USER_HOME$/.composer/vendor/laravel/homestead" />
+          <root url="file://$USER_HOME$/.composer/vendor/laravel/installer" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpmd/phpmd" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/dependency-injection" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/phpunit" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-token-stream" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/exporter" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/dbunit" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/diff" />
+          <root url="file://$USER_HOME$/.composer/vendor/composer" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/global-state" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-file-iterator" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/console" />
+          <root url="file://$USER_HOME$/.composer/vendor/react/promise" />
+          <root url="file://$USER_HOME$/.composer/vendor/guzzlehttp/guzzle" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/phpunit-story" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/config" />
+          <root url="file://$USER_HOME$/.composer/vendor/guzzlehttp/streams" />
+          <root url="file://$USER_HOME$/.composer/vendor/guzzlehttp/ringphp" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/phpunit-mock-objects" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/filesystem" />
+          <root url="file://$USER_HOME$/.composer/vendor/pdepend/pdepend" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/process" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/comparator" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpdocumentor/reflection-docblock" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-code-coverage" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/recursion-context" />
+          <root url="file://$USER_HOME$/.composer/vendor/doctrine/instantiator" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-text-template" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-timer" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/phpunit-selenium" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/environment" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/yaml" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpspec/prophecy" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-invoker" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/version" />
+          <root url="file://$USER_HOME$/.composer/vendor/laravel/homestead" />
+          <root url="file://$USER_HOME$/.composer/vendor/laravel/installer" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpmd/phpmd" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/dependency-injection" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/phpunit" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-token-stream" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/exporter" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/dbunit" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/diff" />
+          <root url="file://$USER_HOME$/.composer/vendor/composer" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/global-state" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-file-iterator" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/console" />
+          <root url="file://$USER_HOME$/.composer/vendor/react/promise" />
+          <root url="file://$USER_HOME$/.composer/vendor/guzzlehttp/guzzle" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/phpunit-story" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/config" />
+          <root url="file://$USER_HOME$/.composer/vendor/guzzlehttp/streams" />
+          <root url="file://$USER_HOME$/.composer/vendor/guzzlehttp/ringphp" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/phpunit-mock-objects" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/filesystem" />
+          <root url="file://$USER_HOME$/.composer/vendor/pdepend/pdepend" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/process" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/comparator" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpdocumentor/reflection-docblock" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-code-coverage" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/recursion-context" />
+          <root url="file://$USER_HOME$/.composer/vendor/doctrine/instantiator" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-text-template" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/php-timer" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpunit/phpunit-selenium" />
+          <root url="file://$USER_HOME$/.composer/vendor/sebastian/environment" />
+          <root url="file://$USER_HOME$/.composer/vendor/symfony/yaml" />
+          <root url="file://$USER_HOME$/.composer/vendor/phpspec/prophecy" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$USER_HOME$/.composer/vendor/symfony/dependency-injection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$USER_HOME$/.composer/vendor/symfony/dependency-injection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
