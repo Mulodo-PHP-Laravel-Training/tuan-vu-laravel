@@ -6,16 +6,16 @@ use App\User as User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Input;
 
-class UserController extends Controller
+class UserController extends RestfulController
 {
 
-    private $user;
+    private $model;
 
-    public function __construct(User $user)
+    public function __construct()
     {
-        $this->user = $user;
+        $this->middleware('restfulAuth', ['except' => ['index', 'show']]);
+        $this->model = new User;
     }
 
     /**
@@ -27,14 +27,13 @@ class UserController extends Controller
     {
         try
         {
-            $userList = $this->user->all();
+            $userList = $this->model->all(['id', 'first_name', 'last_name']);
             foreach ($userList as $user)
             {
                 $result['list'][] = [
                     'id'         => $user->id,
                     'first_name' => $user->first_name,
                     'last_name'  => $user->last_name,
-                    'email'      => $user->email,
                 ];
             }
             $this->formatApiSuccess($result);
@@ -64,20 +63,20 @@ class UserController extends Controller
                 'first_name' => 'required|max:255',
                 'last_name'  => 'required|max:255',
                 'email'      => 'required|email|max:255|unique:users',
-                'password'   => 'required|confirmed|min:6',
+                'password'   => 'required|min:6',
             ]);
             if ($validator->fails())
             {
                 throw new Exception($validator->messages(), 400);
             }
-            $this->user->first_name = $request->input('first_name');
-            $this->user->last_name  = $request->input('last_name');
-            $this->user->email      = $request->input('email');
-            $this->user->password   = bcrypt($request->input['password']);
+            $this->model->first_name = $request->input('first_name');
+            $this->model->last_name  = $request->input('last_name');
+            $this->model->email      = $request->input('email');
+            $this->model->password   = bcrypt($request->input['password']);
 
-            if ($this->user->save())
+            if ($this->model->save())
             {
-                $this->formatApiSuccess("Done");
+                $this->formatApiSuccess();
             }
         }
         catch (Exception $e)
@@ -101,16 +100,13 @@ class UserController extends Controller
     {
         try
         {
-            $data = $this->user->find($id);
-            
-            if (!empty($data))
-            {
-                $this->formatApiSuccess($data->toArray());
-            }
-            else
+            $user = $this->model->find($id);
+            if (empty($user))
             {
                 throw new Exception("Member not found", 404);
             }
+
+            $this->formatApiSuccess($user->toArray());
         }
         catch (Exception $e)
         {
@@ -132,7 +128,60 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try
+        {
+            $user = $this->model->find($id);
+            if (empty($user))
+            {
+                throw new Exception("Member not found", 404);
+            }
+            
+            $validator = Validator::make($request->all(), [
+                'first_name' => 'max:255',
+                'last_name'  => 'max:255',
+                'email'      => 'email|max:255|unique:users',
+                'password'   => 'min:6',
+            ]);
+            if ($validator->fails())
+            {
+                throw new Exception($validator->messages(), 400);
+            }
+            
+            $firstName = $request->input('first_name');
+            $lastName  = $request->input('last_name');
+            $email     = $request->input('email');
+            $password  = $request->input('password');
+
+            if (!empty($firstName))
+            {
+                $user->first_name = $firstName;
+            }
+            elseif (!empty($lastName))
+            {
+                $user->last_name = $lastName;
+            }
+            elseif (!empty($email))
+            {
+                $user->email = $email;
+            }
+            elseif (!empty($password))
+            {
+                $user->password = bcrypt($password);
+            }
+
+            if ($user->update())
+            {
+                $this->formatApiSuccess();
+            }
+        }
+        catch (Exception $e)
+        {
+            $this->formatApiError($e->getMessage(), $e->getCode());
+        }
+        finally
+        {
+            return $this->responseApi();
+        }
     }
 
     /**
@@ -144,6 +193,26 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try
+        {
+            $user = $this->model->find($id);
+            if (empty($user))
+            {
+                throw new Exception("Member not found", 404);
+            }
+
+            if ($user->delete())
+            {
+                $this->formatApiSuccess();
+            }
+        }
+        catch (Exception $e)
+        {
+            $this->formatApiError($e->getMessage(), $e->getCode());
+        }
+        finally
+        {
+            return $this->responseApi();
+        }
     }
 }
