@@ -6,6 +6,7 @@ use App\User as User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends RestfulController
 {
@@ -14,7 +15,6 @@ class UserController extends RestfulController
 
     public function __construct()
     {
-        $this->middleware('restfulAuth', ['except' => ['index', 'show']]);
         $this->model = new User;
     }
 
@@ -59,6 +59,11 @@ class UserController extends RestfulController
     {
         try
         {
+            $auth = Auth::onceBasic();
+            if ($auth)
+            {
+                throw new Exception('NOT authorized access.', 401);
+            }
             $validator = Validator::make($request->all(), [
                 'first_name' => 'required|max:255',
                 'last_name'  => 'required|max:255',
@@ -130,6 +135,11 @@ class UserController extends RestfulController
     {
         try
         {
+            $auth = Auth::onceBasic();
+            if ($auth)
+            {
+                throw new Exception('NOT authorized access.', 401);
+            }
             $user = $this->model->find($id);
             if (empty($user))
             {
@@ -195,6 +205,11 @@ class UserController extends RestfulController
     {
         try
         {
+            $auth = Auth::onceBasic();
+            if ($auth)
+            {
+                throw new Exception('NOT authorized access.', 401);
+            }
             $user = $this->model->find($id);
             if (empty($user))
             {
